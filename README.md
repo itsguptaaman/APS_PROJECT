@@ -24,3 +24,13 @@ git log
 git reset --soft 6afd
 6afd -> last 4 digit of log. 
 ```
+
+### To add and uplod to git
+```
+git add filename
+we can also use . for all file(Current directory)
+
+git commit -m "Message"
+git push origin main
+
+```
