@@ -2,23 +2,21 @@ from sensor.logger import logging
 from sensor.exception import SensorException
 import sys
 import os
-
-
-def test_logger_and_exception():
-    try:
-        logging.info("Starting the test logger function")
-        result = 3/0
-        print(result)
-        logging.info("Stopping the test logger function")
-
-    except Exception as e:
-        logging.debug("Starting the test logger function")
-        raise SensorException(e, sys)
+from sensor.utils import get_collection_as_dataframe
+from sensor.entity.config_entity import DataIngestionConfig
+from sensor.entity.config_entity import TrainingPipelineConfig
+from sensor.components.data_ingestion import DataIngestion
 
 
 if __name__ == "__main__":
     try:
-        test_logger_and_exception()
+        training_pipeline_config = TrainingPipelineConfig()
+        data_ingestion_config = DataIngestionConfig(
+            training_pipeline_config=training_pipeline_config)
+        print(data_ingestion_config.to_dict())
+        data_ingestion = DataIngestion(
+            data_ingestion_config=data_ingestion_config)
+        print(data_ingestion.initiate_data_ingestion())
 
     except Exception as e:
         print(e)
