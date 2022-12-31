@@ -32,5 +32,9 @@ we can also use . for all file(Current directory)
 
 git commit -m "Message"
 git push origin main
+```
 
+### To run jupyter-notebook in vscode
+```
+ pip install ipykernel
 ```

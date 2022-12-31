@@ -57,7 +57,21 @@ class DataIngestionConfig:
 
 
 class DataValidationConfig:
-    ...
+
+    def __init__(self, training_pipeline_conig: TrainingPipelineConfig):
+
+        # Creating a validation directory
+        self.data_validation_dir = os.path.join(
+            training_pipeline_config.artifact_dir, "data_validation")
+
+        # Creating report.yaml file or we can use json file also
+        self.report_file_path = os.path.join(
+            self.data_validation_dir, "report.yaml")
+
+        # Missing value threshold
+        self.missing_threshold: float = 0.2
+
+        self.base_file_path = os.path.join("aps_failure_training_set1.csv")
 
 
 class DataTransformationConfig:
