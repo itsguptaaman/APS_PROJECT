@@ -38,3 +38,9 @@ git push origin main
 ```
  pip install ipykernel
 ```
+
+### **To create a new environment in vscode** 
+```
+ 1. Select the command prompt as a terminal 
+ create -p venv python==3.7 -y
+```
