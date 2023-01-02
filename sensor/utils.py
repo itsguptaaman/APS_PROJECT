@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from sensor.logger import logging
 from sensor.exception import SensorException
 from sensor.config import mongo_client
@@ -60,10 +61,12 @@ def convert_columns_float(df: pd.DataFrame, exclude_columns: list) -> pd.DataFra
 def save_object(file_path: str, obj: object) -> None:
     try:
         logging.info("Entered the save_object method of MainUtils class")
+        logging.info("Entered the save_object method of utils")
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
         with open(file_path, "wb") as file_obj:
             dill.dump(obj, file_obj)
         logging.info("Exited the save_object method of MainUtils class")
+        logging.info("Exited the save_object method of utils")
     except Exception as e:
         raise SensorException(e, sys) from e
 
