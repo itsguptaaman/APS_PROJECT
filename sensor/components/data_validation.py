@@ -21,6 +21,7 @@ class DataValidation:
             self.data_validation_config = data_validation_config
             self.data_ingestion_artifact = data_ingestion_artifact
             self.validation_error = dict()
+
         except Exception as e:
             raise SensorException(e, sys)
 
@@ -49,6 +50,7 @@ class DataValidation:
             if len(df.columns) == 0:
                 return None
             return df
+
         except Exception as e:
             raise SensorException(e, sys)
 
@@ -68,6 +70,7 @@ class DataValidation:
                 self.validation_error[report_key_name] = missing_columns
                 return False
             return True
+
         except Exception as e:
             raise SensorException(e, sys)
 
@@ -101,6 +104,7 @@ class DataValidation:
                     # different distribution
 
             self.validation_error[report_key_name] = drift_report
+
         except Exception as e:
             raise SensorException(e, sys)
 
@@ -164,5 +168,6 @@ class DataValidation:
             logging.info(
                 f"Data validation artifact: {data_validation_artifact}")
             return data_validation_artifact
+
         except Exception as e:
             raise SensorException(e, sys)

@@ -20,8 +20,10 @@ class DataTransformation:
     def __init__(self, data_transformation_config: config_entity.DataTransformationConfig,
                  data_ingestion_artifact: artifact_entity.DataIngestionArtifact):
         try:
+            logging.info(f"{'>>'*20} Data Transformation {'<<'*20}")
             self.data_transformation_config = data_transformation_config
             self.data_ingestion_artifact = data_ingestion_artifact
+
         except Exception as e:
             raise SensorException(e, sys)
 
@@ -37,6 +39,7 @@ class DataTransformation:
                 ('RobustScaler', robust_scaler)
             ])
             return pipeline
+
         except Exception as e:
             raise SensorException(e, sys)
 
@@ -118,5 +121,6 @@ class DataTransformation:
             logging.info(
                 f"Data transformation object {data_transformation_artifact}")
             return data_transformation_artifact
+
         except Exception as e:
             raise SensorException(e, sys)
