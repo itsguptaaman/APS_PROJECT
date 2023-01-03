@@ -15,7 +15,7 @@ python main.py
 
 ### To download the dataset 
 ```
-wget https://raw.githubusercontent.com/yadav-avnish/aps-fault-detection/main/aps_failure_training_set1.csv
+wget https://raw.githubusercontent.com/itsguptaaman/APS_PROJECT/main/aps_failure_training_set1.csv
 ```
 
 ### To check and reset git log
@@ -42,7 +42,7 @@ git push origin main
 ### **To create a new environment in vscode** 
 ```
  1. Select the command prompt as a terminal 
- create -p venv python==3.7 -y
+conda create -p venv python==3.7 -y
 ```
 
 ### Create a .env It contains details.
